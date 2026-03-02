@@ -8,3 +8,7 @@ Route::get('/', function () {
 });
 
 Route::post('/calculate', [CalculationController::class, 'calculate']);
+
+Route::get('/calculator', function () {
+    return view('calculator');
+});
