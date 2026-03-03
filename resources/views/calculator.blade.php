@@ -7,7 +7,7 @@
 
     <h2>Simple Calculator</h2>
 
-    <form id="calculatorForm">
+    <form id="calculatorForm" method="POST">
         @csrf
         
         <input type="number" name="first_number" placeholder="First Number" required>
@@ -26,5 +26,30 @@
 
     <h3>Result: <span id="result"></span></h3>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('#calculatorForm').on('submit', function(e) {
+
+                e.preventDefault(); // stop normal form submission
+
+                $.ajax({
+                    url: '/calculate',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#result').text(response.result);
+                    },
+                    error: function() {
+                        alert("Something went wrong.");
+                    }
+                });
+
+            });
+
+        });
+    </script>
 </body>
 </html>

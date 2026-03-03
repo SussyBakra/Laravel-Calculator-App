@@ -7,8 +7,6 @@ Route::get('/', function () {
     return "Hello I built this";
 });
 
-Route::post('/calculate', [CalculationController::class, 'calculate']);
-
 Route::get('/calculator', function () {
     return view('calculator');
 });
