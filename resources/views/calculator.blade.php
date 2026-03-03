@@ -40,11 +40,35 @@
             overflow: hidden;
         }
 
-        /* Top Right Toggle */
+        /* The bold, chunky navbar */
+        .brutal-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--panel);
+            border-bottom: 6px solid var(--border); /* The thick bottom line */
+            box-sizing: border-box;
+            padding: 15px 30px;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        /* The Calculator title */
+        .nav-title {
+            margin: 0;
+            font-size: 32px;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 0px var(--btn-equal); /* Adds a cool pop of color behind the text */
+        }
+
+        /* Top Right Toggle (Now in Navbar) */
         .toggle {
-            position: absolute;
-            top: 25px;
-            right: 25px;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: 900;
@@ -72,6 +96,7 @@
             box-shadow: 16px 16px 0px var(--border);
             width: 400px;
             transition: background 0.3s;
+            margin-top: 80px; /* Slight push down to avoid hugging the navbar too closely */
         }
 
         /* Huge Black Result Screen */
@@ -200,7 +225,10 @@
 </head>
 <body>
 
-<button class="toggle" id="modeToggle">Light / Dark</button>
+<nav class="brutal-navbar">
+    <h1 class="nav-title">CALCULATOR</h1>
+    <button class="toggle" id="modeToggle">Light / Dark</button>
+</nav>
 
 <div class="calculator">
     <form id="calculatorForm">
